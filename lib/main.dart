@@ -7,7 +7,7 @@ void main() {
 
 final darkTheme = StateProvider<bool>((ref) => false);
 final counterState =
-    StateNotifierProvider<CounterState>((ref) => CounterState());
+StateNotifierProvider<CounterState>((ref) => CounterState());
 
 class CounterState extends StateNotifier<int> {
   CounterState() : super(0);
@@ -23,9 +23,8 @@ class MyApp extends ConsumerWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: isDartTheme ? ThemeData.dark() : ThemeData.light(),
-      home: MyHomePage(
-        title: 'Riverpod',
-      ),
+      // home: MyHomePage(title: 'Riverpod'),
+      home: SearchPage(),
     );
   }
 }
@@ -64,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             RaisedButton(
               onPressed: () => context.read(darkTheme).state =
-                  !context.read(darkTheme).state,
+              !context.read(darkTheme).state,
               child: Text('Change Theme'),
             ),
           ],
@@ -79,12 +78,40 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class Search extends ConsumerWidget {
+final searchProvider = StateProvider((ref) => '');
+final namesProvider = StateProvider<List<String>>((ref) {
+  final search = ref.watch(searchProvider).state;
+  return listOfNames
+      .where((element) => element.toLowerCase().contains(search))
+      .toList();
+});
+
+class SearchPage extends ConsumerWidget {
   @override
-  Widget build(BuildContext context,
-      T Function<T>(ProviderBase<Object, T> provider) watch) {
-    // TODO: implement build
-    throw UnimplementedError();
+  Widget build(BuildContext context, ScopedReader watch) {
+    final search = watch(searchProvider);
+    final names = watch(namesProvider).state;
+    return Scaffold(
+      appBar: AppBar(
+        title: TextFormField(
+          onChanged: (val) => search.state = val,
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.palette),
+            onPressed: () =>
+            context.read(darkTheme).state = !context.read(darkTheme).state,
+          ),
+        ],
+      ),
+      body: ListView.separated(
+        itemCount: names.length,
+        separatorBuilder: (_, __) => Divider(),
+        itemBuilder: (_, index) => ListTile(
+          title: Text(names[index]),
+        ),
+      ),
+    );
   }
 }
 
@@ -240,3 +267,4 @@ final listOfNames = <String>[
   'Kevin',
   'Legend',
 ];
+
