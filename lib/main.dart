@@ -13,8 +13,21 @@ class MyApp extends ConsumerWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: isDartTheme ? ThemeData.dark() : ThemeData.light(),
-      // home: MyHomePage(title: 'Riverpod'),
       home: SearchPage(),
     );
+
+    // final isDartTheme = watch(themeChangeNotifier).isDarkTheme;
+    // final prefs = watch(sharedPreferences);
+    // return prefs.when(
+    //   loading: () => Material(
+    //     child: CircularProgressIndicator(),
+    //   ),
+    //   data: (_) => MaterialApp(
+    //     title: 'Flutter Demo',
+    //     theme: isDartTheme ? ThemeData.dark() : ThemeData.light(),
+    //     home: SearchPage(),
+    //   ),
+    //   error: (_, __) => SizedBox.shrink(),
+    // );
   }
 }

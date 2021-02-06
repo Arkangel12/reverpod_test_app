@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/all.dart';
 import 'package:riverpod_test_app/src/constants.dart';
 import 'package:riverpod_test_app/src/counter_state.dart';
 
+
 final darkTheme = StateProvider<bool>((ref) => false);
 
 final counterState =
@@ -16,3 +17,10 @@ final namesProvider = StateProvider<List<String>>((ref) {
       .toList();
 });
 
+// final sharedPreferences =
+//     FutureProvider((ref) => SharedPreferences.getInstance());
+//
+// final themeChangeNotifier = ChangeNotifierProvider<ThemeChangeNotifier>((ref) {
+//   final prefs = ref.watch(sharedPreferences)?.data?.value;
+//   return ThemeChangeNotifier(prefs);
+// });

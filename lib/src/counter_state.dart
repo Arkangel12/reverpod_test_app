@@ -4,4 +4,6 @@ class CounterState extends StateNotifier<int> {
   CounterState() : super(0);
 
   void increment() => state++;
+
+  void decrement() => state--;
 }
