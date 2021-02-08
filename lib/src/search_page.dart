@@ -7,7 +7,7 @@ class SearchPage extends ConsumerWidget {
   Widget build(BuildContext context, ScopedReader watch) {
     final search = watch(searchProvider);
     final names = watch(namesProvider).state;
-    // final isDartTheme = watch(themeChangeNotifier).isDarkTheme;
+    final isDartTheme = watch(themeChangeNotifier).isDarkTheme;
     return Scaffold(
       appBar: AppBar(
         title: TextFormField(
@@ -16,8 +16,8 @@ class SearchPage extends ConsumerWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.palette),
-            onPressed: () => context.read(darkTheme).state = !context.read(darkTheme).state,
-            // onPressed: () => context.read(themeChangeNotifier).setTheme(!isDartTheme),
+            // onPressed: () => context.read(darkTheme).state = !context.read(darkTheme).state,
+            onPressed: () => context.read(themeChangeNotifier).setTheme(!isDartTheme),
           ),
         ],
       ),
