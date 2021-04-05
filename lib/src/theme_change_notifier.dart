@@ -4,18 +4,18 @@ import 'package:shared_preferences/shared_preferences.dart';
 const _isDarkThemeKey = 'isDarkThemeKey';
 
 class ThemeChangeNotifier with ChangeNotifier {
-  final SharedPreferences _sharedPreferences;
+  late final SharedPreferences _sharedPreferences;
 
-  ThemeChangeNotifier(this._sharedPreferences) {
+   ThemeChangeNotifier(this._sharedPreferences) {
     isDarkThemeEnable();
   }
 
-  bool _isDarkTheme;
+  bool? _isDarkTheme;
 
-  bool get isDarkTheme => _isDarkTheme;
+  bool get isDarkTheme => _isDarkTheme!;
 
   void isDarkThemeEnable() async {
-    _isDarkTheme = _sharedPreferences?.getBool(_isDarkThemeKey) ?? false;
+    _isDarkTheme = _sharedPreferences.getBool(_isDarkThemeKey) ?? false;
     notifyListeners();
   }
 

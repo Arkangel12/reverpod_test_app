@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/all.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_test_app/src/providers.dart';
 
 class SearchPage extends ConsumerWidget {
@@ -16,8 +16,8 @@ class SearchPage extends ConsumerWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.palette),
-            // onPressed: () => context.read(darkTheme).state = !context.read(darkTheme).state,
-            onPressed: () => context.read(themeChangeNotifier).setTheme(!isDartTheme),
+            onPressed: () =>
+                context.read(themeChangeNotifier).setTheme(!isDartTheme),
           ),
         ],
       ),

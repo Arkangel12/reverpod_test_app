@@ -1,4 +1,5 @@
-import 'package:flutter_riverpod/all.dart';
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CounterState extends StateNotifier<int> {
   CounterState() : super(0);

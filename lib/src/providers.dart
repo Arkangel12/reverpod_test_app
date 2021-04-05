@@ -1,4 +1,4 @@
-import 'package:flutter_riverpod/all.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_test_app/src/constants.dart';
 import 'package:riverpod_test_app/src/counter_state.dart';
 import 'package:riverpod_test_app/src/theme_change_notifier.dart';
@@ -22,6 +22,12 @@ final sharedPreferences =
     FutureProvider<SharedPreferences>((ref) => SharedPreferences.getInstance());
 
 final themeChangeNotifier = ChangeNotifierProvider<ThemeChangeNotifier>((ref) {
-  final prefs = ref.watch(sharedPreferences)?.data?.value;
+  final sharePreferencesData = ref.watch(sharedPreferences).data;
+  late final prefs;
+
+  if (sharePreferencesData != null) {
+    prefs = sharePreferencesData.value;
+  }
+
   return ThemeChangeNotifier(prefs);
 });

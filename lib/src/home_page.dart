@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/all.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_test_app/src/providers.dart';
 
 class MyHomePage extends StatefulWidget {
   final String title;
 
-  MyHomePage({this.title});
+  MyHomePage({required this.title});
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -34,9 +34,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () => context.read(darkTheme).state =
-              !context.read(darkTheme).state,
+                  !context.read(darkTheme).state,
               child: Text('Change Theme'),
             ),
           ],
@@ -50,4 +50,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
