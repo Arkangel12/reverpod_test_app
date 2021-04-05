@@ -1,8 +1,8 @@
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class CounterState extends StateNotifier<int> {
-  CounterState() : super(0);
+class CounterModel extends StateNotifier<int> {
+  CounterModel() : super(0);
 
   void increment() => state++;
 
