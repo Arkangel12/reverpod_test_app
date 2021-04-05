@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_test_app/src/home_page.dart';
 import 'package:riverpod_test_app/src/providers.dart';
 import 'package:riverpod_test_app/src/search_page.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends ConsumerWidget {
         return MaterialApp(
           title: 'Flutter Demo',
           theme: isDartTheme ? ThemeData.dark() : ThemeData.light(),
-          home: SearchPage(),
+          home: MyHomePage(title: 'Hola',),
         );
       },
       error: (e, s) => Material(

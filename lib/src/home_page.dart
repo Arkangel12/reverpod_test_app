@@ -34,11 +34,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
-            ElevatedButton(
-              onPressed: () => context.read(darkTheme).state =
-                  !context.read(darkTheme).state,
-              child: Text('Change Theme'),
-            ),
           ],
         ),
       ),
