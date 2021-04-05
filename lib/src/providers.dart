@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 final darkTheme = StateProvider<bool>((ref) => false);
 
 final counterState =
-    StateNotifierProvider<CounterModel>((ref) => CounterModel());
+    StateNotifierProvider<CounterState>((ref) => CounterState());
 
 final searchProvider = StateProvider((ref) => '');
 
