@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_test_app/src/home_page.dart';
 import 'package:riverpod_test_app/src/providers.dart';
-import 'package:riverpod_test_app/src/search_page.dart';
+// import 'package:riverpod_test_app/src/search_page.dart';
 
 void main() => runApp(ProviderScope(child: MyApp()));
 
@@ -22,7 +22,7 @@ class MyApp extends ConsumerWidget {
         return MaterialApp(
           title: 'Flutter Demo',
           theme: isDartTheme ? ThemeData.dark() : ThemeData.light(),
-          home: MyHomePage(title: 'Hola',),
+          home: MyHomePage(title: 'Riverpod',),
         );
       },
       error: (e, s) => Material(

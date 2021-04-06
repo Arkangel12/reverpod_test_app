@@ -27,9 +27,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Consumer(
               builder: (context, watch, child) {
-                final counter = watch(counterState.state);
+                final counter = watch(counterState);
                 return Text(
-                  '$counter',
+                  '${counter.value}',
                   style: Theme.of(context).textTheme.headline4,
                 );
               },
@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: context.read(counterState).increment,
+        onPressed: context.read(counterState.notifier).increment,
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),

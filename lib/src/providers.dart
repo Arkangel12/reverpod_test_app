@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_test_app/src/constants.dart';
 import 'package:riverpod_test_app/src/counter_state.dart';
@@ -7,7 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 final darkTheme = StateProvider<bool>((ref) => false);
 
 final counterState =
-    StateNotifierProvider<CounterState>((ref) => CounterState());
+    StateNotifierProvider<CounterState, CounterModel>((ref) => CounterState());
 
 final searchProvider = StateProvider((ref) => '');
 
