@@ -22,7 +22,9 @@ class MyApp extends ConsumerWidget {
         return MaterialApp(
           title: 'Flutter Demo',
           theme: isDartTheme ? ThemeData.dark() : ThemeData.light(),
-          home: MyHomePage(title: 'Riverpod',),
+          home: MyHomePage(
+            title: 'Riverpod',
+          ),
         );
       },
       error: (e, s) => Material(
